@@ -1,0 +1,28 @@
+{
+  "name": "prisma-tutorial",
+  "version": "1.0.0",
+  "description": "Learning prisma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankurnecessary/prisma-tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ankurnecessary/prisma-tutorial/issues"
+  },
+  "homepage": "https://github.com/ankurnecessary/prisma-tutorial#readme",
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
