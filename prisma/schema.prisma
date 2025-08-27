@@ -15,21 +15,18 @@ datasource db {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
-  name        String
-  isAdmin     Boolean
-  largeNumber BigInt
-  createdAt   DateTime
-  updatedAt   DateTime
-  preferences Json // This type will become invalid if we use "sqlite" instead of "postgresql"
-  blob        Bytes // Used for storing files in raw format in database. NOT USED MUCH
-  Post        Post[]
+  id        String   @id @default(uuid())
+  name      String
+  isAdmin   Boolean
+  createdAt DateTime
+  updatedAt DateTime
+  posts     Post[]
 }
 
 model Post {
-  id      Int     @id @default(autoincrement())
-  rating1 Float // For general floating point numbers
-  rating2 Decimal // For precision in floating point numbers
-  author  User    @relation(fields: [userId], references: [id])
-  userId  Int
+  id        String   @id @default(uuid())
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String   @map("userId")
+  createdAt DateTime
+  updatedAt DateTime
 }
