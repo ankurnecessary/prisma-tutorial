@@ -15,18 +15,21 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  isAdmin   Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  posts     Post[]
+  id             String   @id @default(uuid())
+  name           String
+  isAdmin        Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
+  writtenPosts   Post[]   @relation("writtenPost")
+  favouritePosts Post[]   @relation("favouritedPost")
 }
 
 model Post {
-  id        String   @id @default(uuid())
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  id             String   @id @default(uuid())
+  author         User     @relation("writtenPost", fields: [authorId], references: [id])
+  authorId       String
+  favouritedBy   User     @relation("favouritedPost", fields: [favouritedById], references: [id])
+  favouritedById String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now())
 }
