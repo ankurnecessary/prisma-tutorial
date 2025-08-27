@@ -17,9 +17,9 @@ datasource db {
 model User {
   id        String   @id @default(uuid())
   name      String
-  isAdmin   Boolean
-  createdAt DateTime
-  updatedAt DateTime
+  isAdmin   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
   posts     Post[]
 }
 
@@ -27,6 +27,6 @@ model Post {
   id        String   @id @default(uuid())
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String   @map("userId")
-  createdAt DateTime
-  updatedAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }
