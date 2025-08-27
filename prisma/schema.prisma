@@ -28,8 +28,8 @@ model Post {
   id             String   @id @default(uuid())
   author         User     @relation("writtenPost", fields: [authorId], references: [id])
   authorId       String
-  favouritedBy   User     @relation("favouritedPost", fields: [favouritedById], references: [id])
-  favouritedById String
+  favouritedBy   User?     @relation("favouritedPost", fields: [favouritedById], references: [id])
+  favouritedById String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @default(now())
 }
