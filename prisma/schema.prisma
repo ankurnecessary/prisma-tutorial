@@ -40,7 +40,7 @@ model Post {
   favouritedBy   User?      @relation("favouritedPost", fields: [favouritedById], references: [id])
   favouritedById String?
   createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
   categories     Category[]
 }
 
