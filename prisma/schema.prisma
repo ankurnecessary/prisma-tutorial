@@ -17,6 +17,7 @@ datasource db {
 model User {
   id             String          @id @default(uuid())
   name           String
+  email          String          @default("test@test.com")
   isAdmin        Boolean         @default(false)
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @default(now())
