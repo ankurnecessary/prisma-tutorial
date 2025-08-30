@@ -19,7 +19,7 @@ model User {
   name           String
   age            Int             @default(0)
   email          String          @unique
-  isAdmin        Boolean         @default(false)
+  role           Role            @default(BASIC)
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @default(now())
   writtenPosts   Post[]          @relation("writtenPost")
@@ -54,4 +54,9 @@ model Category {
   id    String @id @default(uuid())
   name  String @unique
   posts Post[]
+}
+
+enum Role {
+  ADMIN
+  BASIC
 }
