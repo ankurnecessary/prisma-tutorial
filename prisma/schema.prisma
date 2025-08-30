@@ -27,6 +27,7 @@ model User {
   userPreference UserPreference?
 
   @@unique([name, age])
+  @@index([email])
 }
 
 model UserPreference {
