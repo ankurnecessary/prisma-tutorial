@@ -4,9 +4,9 @@ const prisma = new PrismaClient();
 // use `prisma` in your application to read and write data in your DB
 
 async function main() {
-  const user = await prisma.user.findFirst({
+  const user = await prisma.user.findMany({
     where: {
-      name: "Deepika",
+      age: 40,
     },
   });
   console.log(user);
