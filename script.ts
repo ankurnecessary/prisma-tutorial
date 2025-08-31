@@ -1,16 +1,13 @@
-import { PrismaClient } from './generated/prisma/index.js'
+import { PrismaClient } from "./generated/prisma/index.js";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 // use `prisma` in your application to read and write data in your DB
 
 async function main() {
-  const user = await prisma.user.findUnique({
+  const user = await prisma.user.findFirst({
     where: {
-      name_age: {
-        age: 40,
-        name: 'Deepika'
-      }
-    }
+      name: "Deepika",
+    },
   });
   console.log(user);
 }
@@ -22,4 +19,4 @@ main()
   .finally(() => {
     // This is not actually necessary because Prisma disconnects itself after query finished running but still safe
     prisma.$disconnect();
-  })
+  });
