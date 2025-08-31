@@ -1,25 +1,23 @@
 import { PrismaClient } from './generated/prisma/index.js'
 
-const prisma = new PrismaClient({log: ['query']})
+const prisma = new PrismaClient()
 // use `prisma` in your application to read and write data in your DB
 
 async function main() {
   await prisma.user.deleteMany();
-  const user = await prisma.user.create({
-    data: {
-      name: 'Ankur',
-      age: 40,
-      email: 'ankur@test.com',
-      userPreference: {
-        create: {
-          emailUpdates: true
-        }
+  const user = await prisma.user.createMany({
+    data: [
+      {
+        name: 'Ankur',
+        age: 40,
+        email: 'ankur@test.com',
+      },
+      {
+        name: 'Deepika',
+        age: 40,
+        email: 'deepika@test.com',
       }
-    },
-    select: {
-      name: true,
-      userPreference: true
-    }
+  ]
   });
   console.log(user);
 }
