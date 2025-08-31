@@ -16,7 +16,8 @@ async function main() {
         }
       }
     },
-    include: {
+    select: {
+      name: true,
       userPreference: true
     }
   });
