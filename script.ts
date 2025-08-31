@@ -4,20 +4,10 @@ const prisma = new PrismaClient()
 // use `prisma` in your application to read and write data in your DB
 
 async function main() {
-  await prisma.user.deleteMany();
-  const user = await prisma.user.createMany({
-    data: [
-      {
-        name: 'Ankur',
-        age: 40,
-        email: 'ankur@test.com',
-      },
-      {
-        name: 'Deepika',
-        age: 40,
-        email: 'deepika@test.com',
-      }
-  ]
+  const user = await prisma.user.findUnique({
+    where: {
+      email: 'deepika@test.com'
+    }
   });
   console.log(user);
 }
