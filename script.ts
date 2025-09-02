@@ -6,7 +6,8 @@ const prisma = new PrismaClient();
 async function main() {
   const user = await prisma.user.findMany({
     where: {
-      name: { notIn: ["Deepika", "Ankur"] },
+      // name: { notIn: ["Deepika", "Ankur"] },
+      age: { lt: 50 },
     },
   });
   console.log(user);
