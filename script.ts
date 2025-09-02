@@ -6,8 +6,7 @@ const prisma = new PrismaClient();
 async function main() {
   const user = await prisma.user.findMany({
     where: {
-      name: "Ankur",
-      age: { lt: 50 },
+      email: { contains: "test.com" },
     },
   });
   console.log(user);
