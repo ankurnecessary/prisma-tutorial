@@ -6,11 +6,8 @@ const prisma = new PrismaClient();
 async function main() {
   const user = await prisma.user.findMany({
     where: {
-      name: "Deepika",
+      name: { equals: "Deepika" },
     },
-    orderBy: { age: "desc" }, // Ordering
-    take: 2, // How many records to show?
-    skip: 1, // How many records to skip?
   });
   console.log(user);
 }
