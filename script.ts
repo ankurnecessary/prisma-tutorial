@@ -6,7 +6,10 @@ const prisma = new PrismaClient();
 async function main() {
   const user = await prisma.user.findMany({
     where: {
-      email: { startsWith: "ankur" },
+      AND: [
+        {email: {startsWith: 'ankur'}},
+        {email: {endsWith: 'test.com'}}
+      ]
     },
   });
   console.log(user);
