@@ -7,7 +7,7 @@ async function main() {
   const user = await prisma.user.findMany({
     where: {
       writtenPosts: {
-        every: {
+        none: {
           title: 'Test'
         }
       }
