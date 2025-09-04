@@ -4,13 +4,13 @@ const prisma = new PrismaClient({ log: ["query"] });
 // use `prisma` in your application to read and write data in your DB
 
 async function main() {
-  const user = await prisma.user.update({
+  const user = await prisma.user.updateMany({
     where: {
-      email: 'deepika1@test.com'
+      name: "Deepika",
     },
     data: {
-      email: '' 
-    }
+      name: "New Deepika",
+    },
   });
   console.log(user);
 }
