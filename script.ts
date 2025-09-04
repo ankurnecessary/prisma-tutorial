@@ -7,7 +7,7 @@ async function main() {
   const user = await prisma.post.findMany({
     where: {
       author: {
-        is: {
+        isNot: {
           age: 27,
         },
       },
